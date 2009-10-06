@@ -1,7 +1,7 @@
-Spiceworks TextMate bundle
+Spiceworks-Vim
 --------------------
 
-Develop Spiceworks Plugins with TextMate.
+Develop Spiceworks Plugins with Vim.
 
 To learn more about Spiceworks and Spiceworks Plugins:
 
@@ -15,32 +15,16 @@ To learn more about Spiceworks and Spiceworks Plugins:
 Installation
 ============
 
-To install via Git:
+To install:
 
-    cd ~/"Library/Application Support/TextMate/Bundles/"
-    git clone git://github.com/shad/spiceworks-tmbundle.git "Spiceworks.tmbundle"
-    osascript -e 'tell app "TextMate" to reload bundles'
+Put the file swjs.vim in your ftdetect directory. (usually ~/.vim/ftdetect). Vim will now recognize files with the extension .swjs as Javascript.
+Edit swjs.vim and change the "environments" hash to match your Spiceworks setup.
 
-Source can be viewed or forked via GitHub: [http://github.com/shad/spiceworks-tmbundle/tree/master](http://github.com/shad/spiceworks-tmbundle/tree/master)
+Source can be viewed or forked via GitHub: [http://github.com/shad/spiceworks-vim/tree/master](http://github.com/runarorama/spiceworks-vim/tree/master)
 
 
 Usage
 ==========================
-
-Open your project directory and add a file 'swconf' (If this file does not exist, it will be created on first attempt to save a spiceworks plugin):
-
-    --- 
-    environments: 
-    - title: Development
-      user: you@example.com
-      url: http://localhost
-      pass: password
-
-    - title: Production
-      user: you@example.com
-      url: http://production-server
-      pass: password
-
 
 Create a new plugin in Spiceworks, view source on the plugin and grab the GUID by inspecting the &lt;tr&gt; element of `settings/plugins`.  Insert the `@guid` attribute into the `SPICEWORKS-PLUGIN` comment block like this:
 
@@ -50,13 +34,16 @@ Create a new plugin in Spiceworks, view source on the plugin and grab the GUID b
     // @description   My Plugin Description
     // @version       0.1
     // @guid          p-597aa800-9708-012b-81c0-0016353cc494-1233697019
+    // @env           Production
     // ==/SPICEWORKS-PLUGIN==
 
+Change the `@env` attribute to match the `title` of the environment you set up in swjs.vim.
 
-Create a file in your project directory for your new plugin.  Name it 'whatever-your-plugin-name-is.swjs'.  Make sure that TextMate recognizes it as a spiceworks plugin file (or change the type to be Spiceworks Plugin).  When you save this plugin using `Option-s` the plugin will also be published out to the server specified in 'swconf'.
+Create a file in your project directory for your new plugin.  Name it 'whatever-your-plugin-name-is.swjs'.  Make sure that Vim recognizes it as a spiceworks plugin file.  When you save this plugin, the plugin will also be published out to the server specified in the environment selected by `@env`.
 
 
 Authors
 =======
 * Shad Reynolds [twitter/shadr](http://twitter.com/shadr), [Shad (Spiceworks)](http://community.spiceworks.com/profile/show/Shad%20(Spiceworks))
 * Justin Perkins
+* Runar Bjarnason
