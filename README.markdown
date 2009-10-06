@@ -20,7 +20,7 @@ To install:
 Put the file swjs.vim in your ftdetect directory. (usually ~/.vim/ftdetect). Vim will now recognize files with the extension .swjs as Javascript.
 Edit swjs.vim and change the "environments" hash to match your Spiceworks setup.
 
-Source can be viewed or forked via GitHub: [http://github.com/shad/spiceworks-vim/tree/master](http://github.com/runarorama/spiceworks-vim/tree/master)
+Source can be viewed or forked via GitHub: [http://github.com/runarorama/spiceworks-vim/tree/master](http://github.com/runarorama/spiceworks-vim/tree/master)
 
 
 Usage
